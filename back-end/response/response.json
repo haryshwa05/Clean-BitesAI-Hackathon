@@ -1,0 +1,69 @@
+{
+    "processed": "Medium",
+    "harmfulIngredients": [
+        "Emulsifying salts (452, 339, 331)",
+        "Iodized salt",
+        "Class II preservatives (200, 234)"
+    ],
+    "suitableDiets": [
+        "Keto Diet",
+        "Paleo Diet",
+        "Vegetarian Diet",
+        "Gluten-Free Diet",
+        "Carnivore Diet"
+    ],
+    "notSuitableDiets": [
+        "Vegan Diet",
+        "Low-Carb Diet",
+        "Low-Fat Diet",
+        "Intermittent Fasting",
+        "Diabetes Diet",
+        "Low-Sodium Diet"
+    ],
+    "macroNutrientsScore": {
+        "Proteins": 66.67,
+        "Carbohydrates": 5.0,
+        "Dietary Fiber": 0.0,
+        "Sugars": 5.0,
+        "Fats": 83.33,
+        "Saturated Fats": 53.33,
+        "Trans Fats": 0.0,
+        "Monounsaturated Fats": 0.0,
+        "Polyunsaturated Fats": 0.0,
+        "Omega-3 Fatty Acids": 0.0,
+        "Omega-6 Fatty Acids": 0.0
+    },
+    "microNutrientsScore": {
+        "Vitamin A": 0.0,
+        "Vitamin C": 0.0,
+        "Vitamin D": 0.0,
+        "Vitamin E": 0.0,
+        "Vitamin K": 0.0,
+        "B1": 0.0,
+        "B2": 0.0,
+        "B3": 0.0,
+        "B5": 0.0,
+        "B6": 0.0,
+        "B7": 0.0,
+        "B9": 0.0,
+        "B12": 0.0,
+        "Calcium": 0.0,
+        "Iron": 0.0,
+        "Magnesium": 0.0,
+        "Potassium": 0.0,
+        "Sodium": 40.0,
+        "Zinc": 0.0,
+        "Phosphorus": 0.0,
+        "Iodine": 0.0,
+        "Selenium": 0.0,
+        "Copper": 0.0,
+        "Manganese": 0.0
+    },
+    "userRisk": "High Risk",
+    "userRiskReason": "Charlie, this food contains high amounts of saturated fat and sodium, which are not suitable for your diabetes and weight loss goals. Additionally, it contains emulsifying salts, preservatives, and iodized salt, which are not considered healthy ingredients.  The high sodium content can also worsen your diabetes and increase your risk of cardiovascular problems.",
+    "actionableSteps": [
+        "Avoid consuming this cheese as it is not suitable for your health goals and may worsen your diabetes.",
+        "Choose healthier alternatives like low-fat cheese or plant-based cheese options that are lower in sodium and saturated fat.",
+        "Consult a registered dietitian or nutritionist to create a personalized meal plan that aligns with your diabetes management and weight loss goals."
+    ]
+}

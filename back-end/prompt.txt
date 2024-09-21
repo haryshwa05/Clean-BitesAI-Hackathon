@@ -1,0 +1,140 @@
+Analyze the following nutritional information and provide a report based on the following requirements
+using the details of the product and the details of the user provided
+
+Details of the user will be in the following format:
+
+{
+    "age": "",
+    "allergy": "",
+    "gender": "",
+    "goal": "",
+    "healthIssue": "",
+    "height": "",
+    "name": "",
+    "userId": "",
+    "weight": ""
+}
+
+use all of the needed details especially allergy and healthissue to make the response specialized for the user
+
+
+
+Additionally, consider the following macronutrients and micronutrients in your analysis:
+
+Macronutrients:
+- Proteins
+- Carbohydrates
+  - Dietary Fiber (important for digestive health)
+  - Sugars (need to monitor for diabetes and general health)
+- Fats
+  - Saturated Fats (should be limited)
+  - Trans Fats (should be avoided)
+  - Monounsaturated Fats (healthy fat)
+  - Polyunsaturated Fats (healthy fat)
+  - Omega-3 Fatty Acids (essential for heart health)
+  - Omega-6 Fatty Acids (important but should be balanced with Omega-3)
+
+Micronutrients:
+- Vitamins
+  - Vitamin A
+  - Vitamin C
+  - Vitamin D
+  - Vitamin E
+  - Vitamin K
+  - B-Vitamins (B1, B2, B3, B5, B6, B7, B9, B12)
+- Minerals
+  - Calcium
+  - Iron
+  - Magnesium
+  - Potassium
+  - Sodium (needs careful monitoring, especially for cardiovascular health)
+  - Zinc
+  - Phosphorus
+  - Iodine
+  - Selenium
+  - Copper
+  - Manganese
+
+Diets(find whether its suitable or not for each of the diets provided below and return diets its suitable for and diets its not suitable for):
+
+Keto Diet
+Paleo Diet
+Vegan Diet
+Vegetarian Diet
+Low-Carb Diet
+Low-Fat Diet
+Gluten-Free Diet
+Intermittent Fasting
+Carnivore Diet
+Diabetes Diet
+Low-Sodium Diet
+
+
+how i want the result to be:
+
+1. Whether the food is Processed? Not Processed, Low, Medium, Highly Processed 
+2. Hamrful Ingredients? None, (If yes) List and reason
+3. Based on the diets List of Suitable Diets
+4. From the macro and micro nutrients that i have listed above score out of 100 for each one of them based on how much they are present?
+5. Based on the user details how much it will affect the user if he haves it(Risk Free, Low Risk, Medium Risk, High Risk, Fatal) including reason 
+6. 3 actionable steps for the user on the food for minimum risks on their goals and health if the product is harmful for them in any way and the it should be very specific to what exactly the user should do
+
+Additional:
+
+Make the response texts personal to the user who is using the app by including his/her name from the user details
+
+Please provide the food analysis in the following JSON format:
+
+{
+    "processed": "string",
+    "harmfulIngredients": "array",
+    "suitableDiets": "array",
+    "notSuitableDiets": "array",
+    "macroNutrientsScore": {
+        "Proteins": "number",
+        "Carbohydrates": "number",
+        "Dietary Fiber": "number",
+        "Sugars": "number",
+        "Fats": "number",
+        "Saturated Fats": "number",
+        "Trans Fats": "number",
+        "Monounsaturated Fats": "number",
+        "Polyunsaturated Fats": "number",
+        "Omega-3 Fatty Acids": "number",
+        "Omega-6 Fatty Acids": "number"
+    },
+    "microNutrientsScore": {
+        "Vitamin A": "number",
+        "Vitamin C": "number",
+        "Vitamin D": "number",
+        "Vitamin E": "number",
+        "Vitamin K": "number",
+        "B1": "number",
+        "B2": "number",
+        "B3": "number",
+        "B5": "number",
+        "B6": "number",
+        "B7": "number",
+        "B9": "number",
+        "B12": "number",
+        "Calcium": "number",
+        "Iron": "number",
+        "Magnesium": "number",
+        "Potassium": "number",
+        "Sodium": "number",
+        "Zinc": "number",
+        "Phosphorus": "number",
+        "Iodine": "number",
+        "Selenium": "number",
+        "Copper": "number",
+        "Manganese": "number"
+    },
+    "userRisk": "string",
+    "userRiskReason": "string",
+    "actionableSteps": "array"
+}
+Please make sure all values are provided in the correct data types and the structure is consistent across requests.
+
+
+ 
+

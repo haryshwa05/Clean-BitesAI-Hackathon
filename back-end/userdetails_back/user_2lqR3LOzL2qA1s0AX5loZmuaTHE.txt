@@ -1,0 +1,11 @@
+{
+    "name": "Haryshwa",
+    "age": "18",
+    "height": "179",
+    "weight": "69",
+    "gender": "Male",
+    "healthIssue": "None",
+    "allergy": "Wheat",
+    "goal": "Weight Loss",
+    "userId": "user_2lqR3LOzL2qA1s0AX5loZmuaTHE"
+}

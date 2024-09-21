@@ -1,0 +1,7 @@
+Extract only the ingredients/allergens and nutritional information from the image in the following format
+
+{
+    "productName": "AMUL CHEESE SLICES",
+    "ingredients": "Ingredients: Cheese, emulsifying salts (452, 339, 331), iodized salt, class II preservatives (200, 234).\nAllergen Information: Contains milk.",
+    "nutritionInfo": "10 servings per container\n\nServing size 20g\n\nAmount per 100 g* %RDA**\nEnergy (kcal) 311 3%\nTotal Fat (g) 25.0 7%\nSaturated Fat (g) 16.0 15%\nTrans Fat (g) 0.0 0%\nCholesterol (mg) 75\nCarbohydrate (g) 1.5\n\nTotal Sugars (g) 1.5\n\nAdded Sugars (g) 0.0 0%\nProtein (g) 20.0\n\nSodium (mg) 1200 12%"
+}

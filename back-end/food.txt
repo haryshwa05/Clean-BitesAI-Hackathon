@@ -1,0 +1,132 @@
+
+AMUL CHEESE SLICES -
+
+Ingredients: Cheese, emulsifying salts (452, 339, 331), iodized salt, class II preservatives (200, 234).
+Allergen Information: Contains milk.
+
+Nutritional Information:
+
+10 servings per container
+
+Serving size 20g
+
+Amount per 100 g* %RDA**
+Energy (kcal) 311 3%
+Total Fat (g) 25.0 7%
+Saturated Fat (g) 16.0 15%
+Trans Fat (g) 0.0 0%
+Cholesterol (mg) 75
+Carbohydrate (g) 1.5
+
+Total Sugars (g) 1.5
+
+Added Sugars (g) 0.0 0%
+Protein (g) 20.0
+
+Sodium (mg) 1200 12%
+
+Response data: {
+  "verdict": "Accurate",
+  "why": [
+    "All listed ingredients reflect those typically used in processed cheese and are accurately identified on the label including preservatives and emulsifying salts.",
+    "Allergen information (milk) is appropriately declared."
+  ],
+  "detailed_analysis": "The Amul Cheese Slices product displays an accurate ingredient list. It includes necessary details such as the specific emulsifying salts (452, 339, 331) and class II preservatives (200, 234), indicating compliance with food labeling regulations. The presence of iodized salt enhances the product’s iodine content, contributing, although minimally, to daily micronutrient intake. The mandatory allergen warning for milk provides essential information for consumers with milk allergies or lactose intolerance."
+}
+
+
+
+
+
+
+BRITANNIA GOOD DAY BUTTER BISCUIT -
+
+Ingredients: REFINED WHEAT FLOUR (MAIDA), SUGAR,
+EDIBLE VEGETABLE OIL (PALM), BUTTER (2%), INVERT SYRUP,
+MILK SOLIDS, RAISING AGENTS [503(ii), 500(ii)], IODISED SALT
+AND EMULSIFIERS [322, 471, 472e].
+
+CONTAINS ADDED FLAVOURS [NATURAL, NATURE IDENTICAL
+AND ARTIFICIAL (BUTTER, VANILLA & MILK) FLAVOURING
+SUBSTANCES]
+
+(Numbers in brackets as per International Numbering System)
+
+CONTAINS WHEAT, MILK AND SOYA.
+
+Nutritional Information:
+
+PER 100g PRODUCT (APPROX.)
+
+Carbohydrates       67g
+  of which Sugars   22g
+Protein             7g
+Fat                 22g
+  Saturated Fatty Acids   11g
+  Mono Unsaturated
+  Fatty Acids       8.5g
+  Poly Unsaturated
+  Fatty Acids       2.5g
+  Trans Fatty Acids 0g
+Cholesterol         6.5mg
+Energy             494kcal
+
+Response data: {
+    "verdict": "Misleading",
+    "why": [
+        "Butter is advertised prominently, but constitutes only 2% of the ingredients.",
+        "Contains prominent amounts of unhealthy ingredients such as refined wheat flour and sugar."
+    ],
+    "detailed_analysis": "Although the product is named 'Butter Biscuit', the actual butter content 
+    is minimal at only 2%. The primary ingredients are less healthy options like refined wheat flour 
+    and palm oil, suggesting the product may not provide the wholesome benefits often associated with 
+    butter. Additionally, prominent advertising of butter could mislead consumers into thinking the 
+    product is richer in butter than it is, potentially affecting both taste expectations and perceived 
+    healthfulness."
+}
+
+
+
+
+
+
+WEIKFIELD COCOA POWDER -
+
+Ingredients: Cocoa Solids (99.75%).
+            CONTAINS ADDED ARTIFICIAL
+            FLAVOURING SUBSTANCE -
+            CHOCOLATE.
+
+ALLERGENS
+May contain traces of Wheat
+(Gluten), Milk and Nuts.
+
+
+*NUTRITIONAL INFORMATION
+(Per 100 g of the product)
+
+Energy (kcal)              393.0
+Carbohydrates (g)          49.8
+  Total Sugar (g)           0.0
+  Added Sugar (g)           0.0
+Protein (g)                23.3
+Total Fat (g)              11.2
+  Saturated Fat (g) - ^NMT  6.8
+  Trans Fat (g) - ^NMT      0.0
+Cholesterol (mg)            0.0
+Sodium (mg)                30
+
+*Approximate values
+^Not More Than
+
+Response data: {
+  "verdict": "Misleading",
+  "why": [
+    "Product is not 100% cocoa as it contains an additional artificial flavour."
+  ],
+  "detailed_analysis": "Weikfield Cocoa Powder claims to be predominantly 'Cocoa Solids,' 
+  but the inclusion of an artificial chocolate flavouring adds a component that is not pure cocoa.
+   While the percentage of this artificial ingredient might be small, it still means the 
+   product cannot be considered as 100% pure cocoa. This may mislead consumers who are seeking 
+   pure cocoa products for their health benefits or for culinary purposes.
+}

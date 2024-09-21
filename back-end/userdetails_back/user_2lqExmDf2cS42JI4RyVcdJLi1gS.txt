@@ -1,0 +1,11 @@
+{
+    "age": "19",
+    "allergy": "Milk",
+    "gender": "Male",
+    "goal": "Weight Loss",
+    "healthIssue": "Diabetes",
+    "height": "182",
+    "name": "Charlie",
+    "userId": "user_2lqExmDf2cS42JI4RyVcdJLi1gS",
+    "weight": "72"
+}
