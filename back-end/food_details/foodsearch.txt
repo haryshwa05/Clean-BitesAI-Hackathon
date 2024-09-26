@@ -1,5 +1,5 @@
 {
-    "productName": "AMUL CHEESE SLICES",
-    "ingredients": "\r\nIngredients: Cheese, emulsifying salts (452, 339, 331), iodized salt, class II preservatives (200, 234).\r\nAllergen Information: Contains milk.",
-    "nutritionInfo": "Nutritional Information:\r\n\r\n10 servings per container\r\n\r\nServing size 20g\r\n\r\nAmount per 100 g* %RDA**\r\nEnergy (kcal) 311 3%\r\nTotal Fat (g) 25.0 7%\r\nSaturated Fat (g) 16.0 15%\r\nTrans Fat (g) 0.0 0%\r\nCholesterol (mg) 75\r\nCarbohydrate (g) 1.5\r\n\r\nTotal Sugars (g) 1.5\r\n\r\nAdded Sugars (g) 0.0 0%\r\nProtein (g) 20.0\r\n\r\nSodium (mg) 1200 14%"
+    "productName": null,
+    "ingredients": "INGREDIENTS: REFINED WHEAT FLOUR (MAIDA), SUGAR, EDIBLE VEGETABLE OIL (PALM), BUTTER (2%), INVERT SYRUP, MILK SOLIDS, RAISING AGENTS [5(1 3(ii)), 500%], IODISED SALT AND EMULSIFIERS [322, 471, 472e].\nCONTAINS ADDED FLAVOURS [NATURAL NATURE IDENTICAL AND ARTIFICIAL (BUTTER, VANILLA & MILK) FLAVOURING SUBSTANCES] (Numbers in brackets as per International Numbering System) CONTAINS WHEAT, MILK AND SOYA.",
+    "nutritionInfo": null
 }
