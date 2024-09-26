@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/button"; // Adjust the import path based on your project structure
+import { Upload } from "lucide-react";
 import "./FoodSearch.css";
 import { useState } from "react";
 import { useUser } from "@clerk/nextjs"; // Clerk's useUser hook
@@ -187,152 +189,169 @@ const FoodSearch = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row pt-16 gap-8">
-      {/* Full-Screen Loader */}
-      {loading && <CustomLoader />}
+    <div className="py-16 pt-28">
 
-      {/* Show Search Form and Food Details if the output is not shown and no loading */}
-      {!showFoodOutput && !loading && (
-        <>
-          {/* Search Section */}
-          <div className="lg:w-1/3 w-full bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">Add Food Product</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block mb-2 text-sm font-medium text-gray-700">Product Name</label>
-                <input
-                  type="text"
-                  name="productName"
-                  value={formData.productName}
-                  onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded-lg"
-                  placeholder="Enter product name"
-                  required
-                  disabled={!isEditable} // Disable when not editable
-                />
-              </div>
+      <h1 className="text-5xl font-bold text-white w-full mb-12">
+        Food Analyzer
+      </h1>
+      <div className="flex flex-col lg:flex-row gap-8 poppins-regular">
 
-              <div className="mb-4">
-                <label className="block mb-2 text-sm font-medium text-gray-700">Ingredients/Allergens</label>
-                <textarea
-                  name="ingredients"
-                  value={formData.ingredients}
-                  onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded-lg"
-                  placeholder="Enter ingredients or allergens"
-                  rows="3"
-                  disabled={!isEditable} // Disable when not editable
-                />
-              </div>
 
-              <div className="mb-4">
-                <label className="block mb-2 text-sm font-medium text-gray-700">Nutritional Information</label>
-                <textarea
-                  name="nutritionInfo"
-                  value={formData.nutritionInfo}
-                  onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded-lg"
-                  placeholder="Enter nutritional information"
-                  rows="3"
-                  disabled={!isEditable} // Disable when not editable
-                />
-              </div>
 
-              <div className="mb-4">
-                <p className="text-sm text-gray-600">or upload an image with both ingredients and nutritional information:</p>
-                <input
-                  type="file"
-                  name="infoImage"
-                  onChange={handleFileUpload}
-                  className="mt-2"
-                  accept="image/*"
-                  disabled={!isEditable || !!formData.infoImage} // Disable when not editable or if image already uploaded
-                />
-                {formData.infoImage && <p>Uploaded Image: {formData.infoImage.name}</p>}
-              </div>
+        {/* Full-Screen Loader */}
+        {loading && <CustomLoader />}
 
-              {error && <p className="text-red-500 mb-4">{error}</p>}
-              {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
+        {/* Show Search Form and Food Details if the output is not shown and no loading */}
+        {!showFoodOutput && !loading && (
+          <>
+            {/* Search Section */}
+            <div className="lg:w-1/3 w-full bg-black text-white bg-opacity-45 p-6 rounded-3xl shadow-md">
+              <h2 className="text-3 xl font-semibold mb-8">Add Food Product</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label className="block mb-4 text-md font-medium text-white">Product Name</label>
+                  <input
+                    type="text"
+                    name="productName"
+                    value={formData.productName}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-black border border-gray-800 rounded-lg"
+                    placeholder="Enter product name"
+                    required
+                    disabled={!isEditable} // Disable when not editable
+                  />
+                </div>
 
-              <div className="flex gap-4">
-                {!isEditable && isAdded && (
-                  <button
-                    type="button"
-                    onClick={handleEdit}
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg w-full"
-                  >
-                    Edit
-                  </button>
-                )}
+                <div className="mb-4">
+                  <label className="block mb-4 text-md font-medium text-white">Ingredients/Allergens</label>
+                  <textarea
+                    name="ingredients"
+                    value={formData.ingredients}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-black border border-gray-800 rounded-lg"
+                    placeholder="Enter ingredients or allergens"
+                    rows="3"
+                    disabled={!isEditable} // Disable when not editable
+                  />
+                </div>
 
-                {(isEditable || !isAdded) && (
-                  <button
-                    type="submit"
-                    className="bg-black hover:bg-gray-900 text-white py-2 px-4 rounded-lg w-full"
-                  >
-                    {isAdded ? "Save" : "Add"}
-                  </button>
-                )}
-              </div>
-            </form>
-          </div>
+                <div className="mb-4">
+                  <label className="block mb-4 text-md font-medium text-white">Nutritional Information</label>
+                  <textarea
+                    name="nutritionInfo"
+                    value={formData.nutritionInfo}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-black border border-gray-800 rounded-lg"
+                    placeholder="Enter nutritional information"
+                    rows="3"
+                    disabled={!isEditable} // Disable when not editable
+                  />
+                </div>
 
-          {/* Result Section */}
-          <div className="lg:w-2/3 w-full bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">Food Details</h2>
+                <div className="mb-4">
+                  <p className="text-sm text-white">Or upload an image with ingredients and nutritional information</p>
 
-            {/* Display the added food in the result section */}
-            {addedFood ? (
-              <div className="border border-gray-300 p-4 rounded-lg">
-                <h3 className="text-lg font-semibold mb-2">
-                  {addedFood.productName || "Product Name Not Provided"}
-                </h3>
-                <p className="mb-2">
-                  <strong>Ingredients:</strong> {addedFood.ingredients || "N/A"}
-                </p>
-                <p>
-                  <strong>Nutritional Info:</strong> {addedFood.nutritionInfo || "N/A"}
-                </p>
-                {addedFood.infoImage && (
-                  <p>
-                    <strong>Uploaded Info Image:</strong> {addedFood.infoImage.name}
+                  <Button as="label" htmlFor="infoImage"  className="flex text-black bg-white hover:bg-gray-300 items-center mt-2">
+                    <Upload className="mr-2 h-4 w-4 " />
+                    Upload
+                  </Button>
+
+                  <input
+                    id="infoImage"
+                    type="file"
+                    name="infoImage"
+                    onChange={handleFileUpload}
+                    className="hidden" // Hide the default input
+                    accept="image/*"
+                    disabled={!isEditable || !!formData.infoImage} // Disable when not editable or if image already uploaded
+                  />
+
+                  {formData.infoImage && <p>Uploaded Image: {formData.infoImage.name}</p>}
+                </div>
+                {error && <p className="text-red-500 mb-4">{error}</p>}
+                {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
+
+                <div className="flex gap-4">
+                  {!isEditable && isAdded && (
+                    <button
+                      type="button"
+                      onClick={handleEdit}
+                      className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg w-full"
+                    >
+                      Edit
+                    </button>
+                  )}
+
+                  {(isEditable || !isAdded) && (
+                    <button
+                      type="submit"
+                      className="bg-emerald-500 hover:bg-gray-900 text-black py-2 px-4 rounded-lg w-full"
+                    >
+                      {isAdded ? "Save" : "Add"}
+                    </button>
+                  )}
+                </div>
+              </form>
+            </div>
+
+            {/* Result Section */}
+            <div className="lg:w-2/3 w-full bg-black bg-opacity-45 text-white p-6 rounded-3xl shadow-md">
+              <h2 className="text-xl font-semibold mb-4">Food Details</h2>
+
+              {/* Display the added food in the result section */}
+              {addedFood ? (
+                <div className="border border-gray-300 p-4 rounded-lg">
+                  <h3 className="text-lg font-semibold mb-2">
+                    {addedFood.productName || "Product Name Not Provided"}
+                  </h3>
+                  <p className="mb-2">
+                    <strong>Ingredients:</strong> {addedFood.ingredients || "N/A"}
                   </p>
-                )}
-              </div>
-            ) : (
-              <p>No food has been added yet.</p>
-            )}
+                  <p>
+                    <strong>Nutritional Info:</strong> {addedFood.nutritionInfo || "N/A"}
+                  </p>
+                  {addedFood.infoImage && (
+                    <p>
+                      <strong>Uploaded Info Image:</strong> {addedFood.infoImage.name}
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <p>No food has been added yet.</p>
+              )}
 
-            {/* Render the search button below the food details */}
-            {addedFood && (
+              {/* Render the search button below the food details */}
+              {addedFood && (
+                <button
+                  onClick={handleSearch}
+                  className="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg"
+                  disabled={loading} // Disable the button while loading
+                >
+                  Search
+                </button>
+              )}
+            </div>
+          </>
+        )}
+
+        {/* Show the Food Output and the Add Another button when geminiResponse is available */}
+        {showFoodOutput && geminiResponse && (
+          <div className="w-full">
+            <FoodOutput foodAnalysis={geminiResponse} />
+
+            <div className="mt-8 text-center">
               <button
-                onClick={handleSearch}
-                className="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg"
-                disabled={loading} // Disable the button while loading
+                onClick={handleAddAnother}
+                className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
               >
-                Search
+                Add Another
               </button>
-            )}
+            </div>
           </div>
-        </>
-      )}
-
-      {/* Show the Food Output and the Add Another button when geminiResponse is available */}
-      {showFoodOutput && geminiResponse && (
-        <div className="w-full">
-          <FoodOutput foodAnalysis={geminiResponse} />
-
-          <div className="mt-8 text-center">
-            <button
-              onClick={handleAddAnother}
-              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
-            >
-              Add Another
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
+
   );
 };
 

@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-black p-2 fixed mt-24 left-6 w-full md:w-16  z-50 flex md:flex-col md:justify-between rounded-t-3xl rounded-b-3xl md:rounded-full">
+    <nav className="bg-black p-2 fixed top-32 left-12 w-full md:w-16  z-50 flex md:flex-col md:justify-between rounded-t-3xl rounded-b-3xl md:rounded-full">
       <div className="container mx-auto md:hidden flex justify-between items-center">
         {/* Hamburger Menu for mobile */}
         <div className="md:hidden flex items-center">
