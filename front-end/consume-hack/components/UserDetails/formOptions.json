@@ -1,0 +1,7 @@
+{
+    "genders": ["Male", "Female"],
+    "healthIssues": ["Diabetes", "Obesity", "Hypertension", "High Cholesterol", "None"],
+    "allergies": ["Peanuts", "Tree Nuts", "Milk", "Eggs", "Wheat", "None"],
+    "goals": ["Weight Loss", "Weight Gain", "Maintain Weight", "None"]
+  }
+  
