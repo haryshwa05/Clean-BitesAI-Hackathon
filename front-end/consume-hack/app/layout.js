@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en">
-        <body className="bg-cover bg-center bg-no-repeat h-screen" style={{ backgroundImage: "url('/cleanbites-bg.jpg')" }}>
+        <body className="bg-cover bg-center bg-no-repeat h-screen" style={{ backgroundImage: "url('/app-bg.jpg')" }}>
           {/* Conditionally render the Navbar */}
           {showNavbar && <Navbar />}
 

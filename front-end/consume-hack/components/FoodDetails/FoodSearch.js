@@ -187,7 +187,7 @@ const FoodSearch = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row px-8 py-20 gap-8">
+    <div className="flex flex-col lg:flex-row pt-16 gap-8">
       {/* Full-Screen Loader */}
       {loading && <CustomLoader />}
 
@@ -195,7 +195,7 @@ const FoodSearch = () => {
       {!showFoodOutput && !loading && (
         <>
           {/* Search Section */}
-          <div className="lg:w-1/3 w-full bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="lg:w-1/3 w-full bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">Add Food Product</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">

@@ -7,15 +7,30 @@ import Image from "next/image";
 export default function HomePage() {
   const router = useRouter();
 
-  // Handle button click
+  // Handle button click for "Try Now"
   const handleStartNow = () => {
     router.push("/sign-up"); // Navigate to the signup page (you can change the route)
   };
 
+  // Handle navigation for "Watch Demo"
+  const handleWatchDemo = () => {
+    router.push("/watch-demo"); // Navigate to the watch demo page (change the route as needed)
+  };
+
   return (
-    <div className="poppins-regular relative flex flex-col items-center justify-center h-screen bg-black text-white overflow-x-hidden">
+    <div
+      className="poppins-regular relative flex flex-col items-center justify-center h-screen text-white overflow-x-hidden"
+      style={{
+        backgroundImage: "url('/landing-page.jpg  ')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+
       {/* Logo */}
-      <div className="absolute top-6 left-6">
+      <div className="absolute top-6 left-6 z-10">
         <Image
           src="/cleanbites-new.jpg"
           alt="Logo"
@@ -26,57 +41,69 @@ export default function HomePage() {
       </div>
 
       {/* Navigation Links */}
-      <div className="absolute top-6 right-24 flex space-x-6">
+      <div className="absolute top-6 right-24 flex space-x-6 z-10">
         <a
           href="#"
-          className="text-white hover:text-gray-300 transition-colors duration-200"
+          className="text-white hover:text-gray-300 transition-colors duration-200 hover:underline"
         >
           Source
         </a>
         <a
           href="#"
-          className="text-white hover:text-gray-300 transition-colors duration-200"
+          className="text-white hover:text-gray-300 transition-colors duration-200 hover:underline"
         >
           Documentation
         </a>
       </div>
 
       {/* Main content */}
-      <div className="text-center poppins-regular px-4 max-w-screen-xl mx-auto">
+      <div className="relative z-10 text-center poppins-regular px-4 max-w-screen-xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
           Snap. Find the truth. Eat right.
         </h1>
         <p className="text-lg md:text-2xl mb-8">
           From scan to insight, CleanBites AI helps you choose <br /> the best foods for you. Get started now
         </p>
-        <a
-          href="#_"
-          onClick={handleStartNow}
-          className="relative inline-flex items-center justify-start px-8 py-4 overflow-hidden font-bold rounded-full group"
-        >
-          <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-          <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
-          <span className="relative text-md w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900 flex items-center">
+
+        {/* Buttons Container */}
+        <div className="flex space-x-4 justify-center">
+          {/* Try Now Button (Reverted to Previous State) */}
+          <a
+            href="#_"
+            onClick={handleStartNow}
+            className="relative inline-flex items-center justify-center px-8 py-4 font-bold text-white rounded-full border-2 border-white transition-all duration-200 hover:bg-white hover:text-black"
+          >
             Try Now
-            <span className="ml-2 relative flex items-center transition-transform duration-300 ease-in-out group-hover:translate-x-2">
+          </a>
+
+          {/* Watch Demo Button with New Hover Effect */}
+          <a
+            href="#"
+            onClick={handleWatchDemo}
+            className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group"
+          >
+            <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
                 fill="none"
-                viewBox="0 0 24 24"
                 stroke="currentColor"
-                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  strokeWidth="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
             </span>
-          </span>
-          <span className="absolute inset-0 border-2 border-white rounded-full"></span>
-        </a>
+            <span className="absolute flex items-center justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+              Watch Demo
+            </span>
+            <span className="relative invisible">Watch Demo</span>
+          </a>
+        </div>
       </div>
     </div>
   );

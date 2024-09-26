@@ -99,7 +99,7 @@ export default function UserDetails() {
   };
 
   return (
-    <div className="flex justify-center items-center pt-14 bg-gray-100">
+    <div className="flex justify-center items-center pt-14">
       <div className="w-full max-w-4xl bg-white p-8 shadow-lg rounded-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">{isEditMode ? "Edit" : "Submit"} User Details</h2>
         
