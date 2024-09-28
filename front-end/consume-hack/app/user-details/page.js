@@ -3,7 +3,7 @@ import React from 'react'
 
 function UserDetailsPage() {
   return (
-    <div className='px-32 pt-8'>
+    <div className='px-24'>
 
     <UserDetails />
     </div>

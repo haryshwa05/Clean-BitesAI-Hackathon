@@ -1,5 +1,5 @@
 {
     "productName": null,
-    "ingredients": "INGREDIENTS: REFINED WHEAT FLOUR (MAIDA), SUGAR, EDIBLE VEGETABLE OIL (PALM), BUTTER (2%), INVERT SYRUP, MILK SOLIDS, RAISING AGENTS [5(1 3(ii)), 500%], IODISED SALT AND EMULSIFIERS [322, 471, 472e].\nCONTAINS ADDED FLAVOURS [NATURAL NATURE IDENTICAL AND ARTIFICIAL (BUTTER, VANILLA & MILK) FLAVOURING SUBSTANCES] (Numbers in brackets as per International Numbering System) CONTAINS WHEAT, MILK AND SOYA.",
-    "nutritionInfo": null
+    "ingredients": "INGREDIENTS: REFINED WHEAT FLOUR (MAIDA), SUGAR, EDIBLE VEGETABLE OIL (PALM), BUTTER (2%), INVERT SYRUP, MILK SOLIDS, RAISING AGENTS [5(13(ii), 500%], IODISED SALT AND EMULSIFIERS [322, 471, 472e].\nCONTAINS ADDED FLAVOURS [NATURAL NATURE IDENTICAL AND ARTIFICIAL (BUTTER, VANILLA & MILK) FLAVOURING SUBSTANCES] (Numbers in brackets as per International Numbering System) CONTAINS WHEAT, MILK AND SOYA.",
+    "nutritionInfo": "NUTRITION INFORMATION\nPER 100G PRODUCT (APPROX.)\nCarbohydrates\t67g\nof which sugars\t22g\nProtein\t7g\nFat\t22g\nSaturated Fatty acids\t11g\nMono unsaturated fatty acids\t8.5g\nPoly unsaturated fatty acids\t2.5g\nTrans fatty acids\t0g\nCholestrol\t6.5mg\nEnergy\t494 kcal"
 }

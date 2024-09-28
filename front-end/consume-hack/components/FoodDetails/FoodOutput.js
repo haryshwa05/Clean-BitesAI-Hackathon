@@ -103,12 +103,23 @@ export default function FoodOutput({ foodAnalysis = {} }) {
     actionableSteps = [],
   } = foodAnalysis;
 
+  const getProgressColor = (value) => {
+    if (value >= 66) return "bg-green-500"; // High values (green)
+    if (value >= 33) return "bg-yellow-500"; // Medium values (yellow)
+    return "bg-red-500"; // Low values (red)
+  };
+
   const renderNutrientScores = (scores) => {
     return Object.entries(scores).map(([nutrient, score]) => (
       <div key={nutrient} className="flex items-center justify-between mb-2">
         <span className="text-sm font-medium">{nutrient}</span>
         {score !== "N/A" ? (
-          <Progress value={parseInt(score)} className="w-1/2" />
+          <div className="w-1/2 h-2 rounded bg-gray-800">
+            <div
+              className={`h-full rounded ${getProgressColor(parseInt(score))}`}
+              style={{ width: `${parseInt(score)}%` }}
+            ></div>
+          </div>
         ) : (
           <span className="text-sm text-muted-foreground">N/A</span>
         )}
@@ -118,9 +129,9 @@ export default function FoodOutput({ foodAnalysis = {} }) {
 
   return (
     <div className="container mx-auto space-y-8">
-      <Card>
+      <Card className="bg-black bg-opacity-70 text-white">
         <CardHeader>
-          <CardTitle>Food Analysis</CardTitle>
+          <CardTitle className="text-3xl">Food Analysis</CardTitle>
           <CardDescription>Detailed nutritional breakdown and dietary impact</CardDescription>
         </CardHeader>
         <CardContent>

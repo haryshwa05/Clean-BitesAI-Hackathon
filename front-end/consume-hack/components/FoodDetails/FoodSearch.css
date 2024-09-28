@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: white; /* Semi-transparent black */
+  background: black; /* Semi-transparent black */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -30,7 +30,7 @@ export default function UserDetails() {
         if (response.ok) {
           const data = await response.json();
           setFormData(data); // Populate the form with existing user data
-          setIsEditMode(true); // Set to edit mode since data exists
+          setIsEditMode(false); // Set to view mode since data exists
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -67,6 +67,11 @@ export default function UserDetails() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isEditMode) {
+      // If not in edit mode, prevent submission
+      return;
+    }
+
     setSuccessMessage("");
     setErrorMessage("");
 
@@ -87,6 +92,7 @@ export default function UserDetails() {
         if (response.ok) {
           const data = await response.json();
           setSuccessMessage("Form submitted successfully.");
+          setIsEditMode(false); // Switch back to view mode after saving
         } else {
           const errorData = await response.json();
           setErrorMessage("Failed to submit the form: " + errorData.message);
@@ -98,157 +104,184 @@ export default function UserDetails() {
     }
   };
 
+  // Handle edit mode toggle
+  const handleEditMode = (e) => {
+    e.preventDefault(); // Prevent form submission on edit button click
+    setIsEditMode(!isEditMode);
+  };
+
   return (
-    <div className="flex justify-center items-center pt-14">
-      <div className="w-full max-w-4xl bg-white p-8 shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold mb-6 text-center">{isEditMode ? "Edit" : "Submit"} User Details</h2>
-        
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
-          {successMessage && <p className="text-green-500 text-center col-span-2">{successMessage}</p>}
-          {errorMessage && <p className="text-red-500 text-center col-span-2">{errorMessage}</p>}
+    <div className="py-16 pt-28">
+      
+      <div className="flex justify-center items-center poppins-regular">
+        <div className="w-full max-w-4xl bg-black bg-opacity-80 p-8 shadow-lg rounded-3xl">
+          <h2 className="text-5xl mb-6 text-center text-white">Your Details</h2>
+          
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
+            {successMessage && <p className="text-green-500 text-center col-span-2">{successMessage}</p>}
+            {errorMessage && <p className="text-red-500 text-center col-span-2">{errorMessage}</p>}
 
-          {/* Name */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.name ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              placeholder="Enter your name"
-              required
-            />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-          </div>
+            {/* Name */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.name ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                placeholder="Enter your name"
+                required
+              />
+              {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+            </div>
 
-          {/* Age */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Age</label>
-            <input
-              type="number"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.age ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              placeholder="Enter your age"
-              required
-            />
-            {errors.age && <p className="text-red-500 text-sm">{errors.age}</p>}
-          </div>
+            {/* Age */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Age</label>
+              <input
+                type="number"
+                name="age"
+                value={formData.age}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.age ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                placeholder="Enter your age"
+                required
+              />
+              {errors.age && <p className="text-red-500 text-sm">{errors.age}</p>}
+            </div>
 
-          {/* Height */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Height (in cm)</label>
-            <input
-              type="number"
-              name="height"
-              value={formData.height}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.height ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              placeholder="Enter your height"
-              required
-            />
-            {errors.height && <p className="text-red-500 text-sm">{errors.height}</p>}
-          </div>
+            {/* Height */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Height (in cm)</label>
+              <input
+                type="number"
+                name="height"
+                value={formData.height}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.height ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                placeholder="Enter your height"
+                required
+              />
+              {errors.height && <p className="text-red-500 text-sm">{errors.height}</p>}
+            </div>
 
-          {/* Weight */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Weight (in kg)</label>
-            <input
-              type="number"
-              name="weight"
-              value={formData.weight}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.weight ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              placeholder="Enter your weight"
-              required
-            />
-            {errors.weight && <p className="text-red-500 text-sm">{errors.weight}</p>}
-          </div>
+            {/* Weight */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Weight (in kg)</label>
+              <input
+                type="number"
+                name="weight"
+                value={formData.weight}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.weight ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                placeholder="Enter your weight"
+                required
+              />
+              {errors.weight && <p className="text-red-500 text-sm">{errors.weight}</p>}
+            </div>
 
-          {/* Gender */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Gender</label>
-            <select
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.gender ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              required
-            >
-              <option value="">Select Gender</option>
-              {formOptions.genders.map((gender, index) => (
-                <option key={index} value={gender}>{gender}</option>
-              ))}
-            </select>
-            {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
-          </div>
+            {/* Gender */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Gender</label>
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.gender ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                required
+              >
+                <option value="">Select Gender</option>
+                {formOptions.genders.map((gender, index) => (
+                  <option key={index} value={gender}>{gender}</option>
+                ))}
+              </select>
+              {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
+            </div>
 
-          {/* Health Issues */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Health Issues</label>
-            <select
-              name="healthIssue"
-              value={formData.healthIssue}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.healthIssue ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              required
-            >
-              <option value="">Select Health Issue</option>
-              {formOptions.healthIssues.map((issue, index) => (
-                <option key={index} value={issue}>{issue}</option>
-              ))}
-            </select>
-            {errors.healthIssue && <p className="text-red-500 text-sm">{errors.healthIssue}</p>}
-          </div>
+            {/* Health Issues */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Health Issues</label>
+              <select
+                name="healthIssue"
+                value={formData.healthIssue}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.healthIssue ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                required
+              >
+                <option value="">Select Health Issue</option>
+                {formOptions.healthIssues.map((issue, index) => (
+                  <option key={index} value={issue}>{issue}</option>
+                ))}
+              </select>
+              {errors.healthIssue && <p className="text-red-500 text-sm">{errors.healthIssue}</p>}
+            </div>
 
-          {/* Allergies */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Allergies</label>
-            <select
-              name="allergy"
-              value={formData.allergy}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.allergy ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              required
-            >
-              <option value="">Select Allergy</option>
-              {formOptions.allergies.map((allergy, index) => (
-                <option key={index} value={allergy}>{allergy}</option>
-              ))}
-            </select>
-            {errors.allergy && <p className="text-red-500 text-sm">{errors.allergy}</p>}
-          </div>
+            {/* Allergies */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Allergies</label>
+              <select
+                name="allergy"
+                value={formData.allergy}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.allergy ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                required
+              >
+                <option value="">Select Allergy</option>
+                {formOptions.allergies.map((allergy, index) => (
+                  <option key={index} value={allergy}>{allergy}</option>
+                ))}
+              </select>
+              {errors.allergy && <p className="text-red-500 text-sm">{errors.allergy}</p>}
+            </div>
 
-          {/* Goals */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">Goals</label>
-            <select
-              name="goal"
-              value={formData.goal}
-              onChange={handleChange}
-              className={`w-full p-3 border ${errors.goal ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              required
-            >
-              <option value="">Select Goal</option>
-              {formOptions.goals.map((goal, index) => (
-                <option key={index} value={goal}>{goal}</option>
-              ))}
-            </select>
-            {errors.goal && <p className="text-red-500 text-sm">{errors.goal}</p>}
-          </div>
+            {/* Goals */}
+            <div>
+              <label className="block text-white font-semibold mb-2">Goals</label>
+              <select
+                name="goal"
+                value={formData.goal}
+                onChange={handleChange}
+                disabled={!isEditMode} // Disable input if not in edit mode
+                className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.goal ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                required
+              >
+                <option value="">Select Goal</option>
+                {formOptions.goals.map((goal, index) => (
+                  <option key={index} value={goal}>{goal}</option>
+                ))}
+              </select>
+              {errors.goal && <p className="text-red-500 text-sm">{errors.goal}</p>}
+            </div>
 
-          {/* Submit Button */}
-          <div className="text-center col-span-2">
-            <button
-              type="submit"
-              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              {isEditMode ? "Update" : "Submit"}
-            </button>
-          </div>
-        </form>
+            {/* Submit Button */}
+            <div className="text-center col-span-2">
+              {isEditMode ? (
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Save
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleEditMode}
+                  className="px-6 py-3 bg-emerald-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Edit
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
