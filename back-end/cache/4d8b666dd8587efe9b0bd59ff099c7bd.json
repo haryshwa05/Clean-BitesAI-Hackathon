@@ -1,0 +1,76 @@
+{
+    "processed": "Medium",
+    "harmfulIngredients": [
+        "Refined Palm & Palmolein Oil",
+        "Liquid Glucose",
+        "Sodium Bicarbonate",
+        "Monocalcium Phosphate",
+        "Wheat Gluten",
+        "Dried Yeast",
+        "Dried Milk Solids",
+        "Natural Flavouring and Imitative Flavouring Substances (223)",
+        "Dough Conditioners (500, 170(ii)) and Improvers (223) & KYLAMASE",
+        "Sulphites"
+    ],
+    "suitableDiets": [
+        "Gluten-Free Diet"
+    ],
+    "notSuitableDiets": [
+        "Keto Diet",
+        "Paleo Diet",
+        "Vegan Diet",
+        "Vegetarian Diet",
+        "Low-Carb Diet",
+        "Low-Fat Diet",
+        "Intermittent Fasting",
+        "Carnivore Diet",
+        "Diabetes Diet",
+        "Low-Sodium Diet"
+    ],
+    "macroNutrientsScore": {
+        "Proteins": "15",
+        "Carbohydrates": "27",
+        "Dietary Fiber": "0",
+        "Sugars": "28",
+        "Fats": "30",
+        "Saturated Fats": "7",
+        "Trans Fats": "0",
+        "Monounsaturated Fats": "3",
+        "Polyunsaturated Fats": "2",
+        "Omega-3 Fatty Acids": "0",
+        "Omega-6 Fatty Acids": "0"
+    },
+    "microNutrientsScore": {
+        "Vitamin A": "0",
+        "Vitamin C": "0",
+        "Vitamin D": "0",
+        "Vitamin E": "0",
+        "Vitamin K": "0",
+        "B1": "0",
+        "B2": "0",
+        "B3": "0",
+        "B5": "0",
+        "B6": "0",
+        "B7": "0",
+        "B9": "0",
+        "B12": "0",
+        "Calcium": "0",
+        "Iron": "0",
+        "Magnesium": "0",
+        "Potassium": "0",
+        "Sodium": "43",
+        "Zinc": "0",
+        "Phosphorus": "0",
+        "Iodine": "0",
+        "Selenium": "0",
+        "Copper": "0",
+        "Manganese": "0"
+    },
+    "userRisk": "High Risk",
+    "userRiskReason": "The food is highly processed and contains harmful ingredients like refined palm oil, liquid glucose, and artificial flavors. It is also high in sodium and sugar, which can be detrimental to your health, especially if you have [healthIssue].",
+    "actionableSteps": [
+        "Avoid consuming this product as it is not suitable for your dietary needs and may pose health risks. ",
+        "Look for healthier alternatives like whole-grain biscuits or crackers with minimal added sugar and sodium. ",
+        "Consult a registered dietitian or nutritionist to create a personalized meal plan that aligns with your health goals and dietary restrictions."
+    ]
+}

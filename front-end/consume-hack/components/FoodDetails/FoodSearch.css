@@ -4,11 +4,22 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: black; /* Semi-transparent black */
+  background: black; /* Full black background */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* z-index: 9999; */ /* Ensure it appears on top of everything */
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.loading svg {
+  margin-bottom: 20px; /* Adds space between the SVG and the text */
 }
 
 .loading svg polyline {
@@ -20,12 +31,12 @@
 
 .loading svg polyline#back {
   fill: none;
-  stroke: #ff4d5033;
+  stroke: #ff4d5033; /* Light stroke */
 }
 
 .loading svg polyline#front {
   fill: none;
-  stroke: #ff4d4f;
+  stroke: #ff4d4f; /* Bold stroke */
   stroke-dasharray: 48, 144;
   stroke-dashoffset: 192;
   animation: dash_682 1.4s linear infinite;
@@ -39,4 +50,10 @@
   to {
     stroke-dashoffset: 0;
   }
+}
+
+h2 {
+  color: white;
+  margin-top: 0.5px;
+  font-size: 1.0rem;
 }

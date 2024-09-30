@@ -16,7 +16,7 @@ export default function UserDetails() {
     allergy: "",
     goal: "",
   });
-  const [isEditMode, setIsEditMode] = useState(false); // Track whether the user is editing existing data
+  const [isFormChanged, setIsFormChanged] = useState(false); // Track if the form is being edited
   const [formOptions] = useState(formOptionsData);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
@@ -30,7 +30,7 @@ export default function UserDetails() {
         if (response.ok) {
           const data = await response.json();
           setFormData(data); // Populate the form with existing user data
-          setIsEditMode(false); // Set to view mode since data exists
+          setIsFormChanged(false); // Ensure the form is not in edit mode by default
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -46,6 +46,7 @@ export default function UserDetails() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setIsFormChanged(true); // Show save button when any field is changed
   };
 
   // Form validation
@@ -67,22 +68,16 @@ export default function UserDetails() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isEditMode) {
-      // If not in edit mode, prevent submission
-      return;
-    }
 
     setSuccessMessage("");
     setErrorMessage("");
 
     if (validateForm()) {
       try {
-        const endpoint = isEditMode
-          ? `http://localhost:8000/update-user-details/${user.id}`
-          : `http://localhost:8000/save-details`;
+        const endpoint = `http://localhost:8000/update-user-details/${user.id}`;
 
         const response = await fetch(endpoint, {
-          method: "POST",  // Ensure this is POST for update or save
+          method: "POST",  // Ensure this is POST for update
           headers: {
             "Content-Type": "application/json",
           },
@@ -92,7 +87,10 @@ export default function UserDetails() {
         if (response.ok) {
           const data = await response.json();
           setSuccessMessage("Form submitted successfully.");
-          setIsEditMode(false); // Switch back to view mode after saving
+          setIsFormChanged(false); // Hide the save button after saving
+
+          // Automatically refresh the page
+          window.location.reload();
         } else {
           const errorData = await response.json();
           setErrorMessage("Failed to submit the form: " + errorData.message);
@@ -102,34 +100,27 @@ export default function UserDetails() {
         console.error("Error submitting form:", error);
       }
     }
-  };
+};
 
-  // Handle edit mode toggle
-  const handleEditMode = (e) => {
-    e.preventDefault(); // Prevent form submission on edit button click
-    setIsEditMode(!isEditMode);
-  };
 
   return (
     <div className="py-16 pt-28">
-      
       <div className="flex justify-center items-center poppins-regular">
         <div className="w-full max-w-4xl bg-black bg-opacity-80 p-8 shadow-lg rounded-3xl">
-          <h2 className="text-5xl mb-6 text-center text-white">Your Details</h2>
-          
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
-            {successMessage && <p className="text-green-500 text-center col-span-2">{successMessage}</p>}
-            {errorMessage && <p className="text-red-500 text-center col-span-2">{errorMessage}</p>}
+          <h2 className="text-3xl md:text-5xl mb-6 text-center text-white">Your Details</h2>
+
+          <form className="grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-2" onSubmit={handleSubmit}>
+            {successMessage && <p className="text-green-500 text-center col-span-1 md:col-span-2">{successMessage}</p>}
+            {errorMessage && <p className="text-red-500 text-center col-span-1 md:col-span-2">{errorMessage}</p>}
 
             {/* Name */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.name ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 placeholder="Enter your name"
                 required
@@ -138,14 +129,13 @@ export default function UserDetails() {
             </div>
 
             {/* Age */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Age</label>
               <input
                 type="number"
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.age ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 placeholder="Enter your age"
                 required
@@ -154,14 +144,13 @@ export default function UserDetails() {
             </div>
 
             {/* Height */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Height (in cm)</label>
               <input
                 type="number"
                 name="height"
                 value={formData.height}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.height ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 placeholder="Enter your height"
                 required
@@ -170,14 +159,13 @@ export default function UserDetails() {
             </div>
 
             {/* Weight */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Weight (in kg)</label>
               <input
                 type="number"
                 name="weight"
                 value={formData.weight}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.weight ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 placeholder="Enter your weight"
                 required
@@ -186,13 +174,12 @@ export default function UserDetails() {
             </div>
 
             {/* Gender */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Gender</label>
               <select
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.gender ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 required
               >
@@ -205,13 +192,12 @@ export default function UserDetails() {
             </div>
 
             {/* Health Issues */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Health Issues</label>
               <select
                 name="healthIssue"
                 value={formData.healthIssue}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.healthIssue ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 required
               >
@@ -224,13 +210,12 @@ export default function UserDetails() {
             </div>
 
             {/* Allergies */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Allergies</label>
               <select
                 name="allergy"
                 value={formData.allergy}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.allergy ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 required
               >
@@ -243,13 +228,12 @@ export default function UserDetails() {
             </div>
 
             {/* Goals */}
-            <div>
+            <div className="col-span-1">
               <label className="block text-white font-semibold mb-2">Goals</label>
               <select
                 name="goal"
                 value={formData.goal}
                 onChange={handleChange}
-                disabled={!isEditMode} // Disable input if not in edit mode
                 className={`w-full p-3 border bg-black placeholder-gray-500 text-white ${errors.goal ? "border-red-500" : "border-gray-800"} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 required
               >
@@ -262,24 +246,16 @@ export default function UserDetails() {
             </div>
 
             {/* Submit Button */}
-            <div className="text-center col-span-2">
-              {isEditMode ? (
+            {isFormChanged && (
+              <div className="text-center col-span-1 md:col-span-2">
                 <button
                   type="submit"
                   className="px-6 py-3 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   Save
                 </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleEditMode}
-                  className="px-6 py-3 bg-emerald-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  Edit
-                </button>
-              )}
-            </div>
+              </div>
+            )}
           </form>
         </div>
       </div>

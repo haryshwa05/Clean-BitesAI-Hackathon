@@ -5,7 +5,7 @@ import React from 'react'
 
 function FoodDetailsPage() {
   return (
-    <div className='px-24'>
+    <div className='md:px-24'>
         
         <FoodSearch />
         

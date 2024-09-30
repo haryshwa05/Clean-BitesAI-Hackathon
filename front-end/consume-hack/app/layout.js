@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
           {showTopBar && <TopBar />}
 
           {/* Ensure that content starts below the Navbar if it's shown */}
-          <main className={showNavbar ? "pl-14" : ""}>
+          <main className={showNavbar ? "md:pl-14" : ""}>
             {children}
           </main>
         </body>

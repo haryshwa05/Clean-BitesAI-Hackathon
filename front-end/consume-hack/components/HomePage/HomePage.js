@@ -21,7 +21,7 @@ export default function HomePage() {
     <div
       className="poppins-regular relative flex flex-col items-center justify-center h-screen text-white overflow-x-hidden"
       style={{
-        backgroundImage: "url('/landing-page.jpg  ')",
+        backgroundImage: "",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

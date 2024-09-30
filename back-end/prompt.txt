@@ -83,6 +83,8 @@ Additional:
 
 Make the response texts personal to the user who is using the app by including his/her name from the user details
 
+Make sure macronutrients and micronutrients should be  scored out of 100 and shouldnt exceed 100 in the score 
+
 Please provide the food analysis in the following JSON format:
 
 {
@@ -133,7 +135,7 @@ Please provide the food analysis in the following JSON format:
     "userRiskReason": "string",
     "actionableSteps": "array"
 }
-Please make sure all values are provided in the correct data types and the structure is consistent across requests.
+Please make sure all values are provided in the correct data types and the structure is consistent across requests. 
 
 
  

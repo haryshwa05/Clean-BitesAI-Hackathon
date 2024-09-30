@@ -1,0 +1,71 @@
+{
+    "processed": "Medium",
+    "harmfulIngredients": [
+        "Refined Palm & Palmolein Oil",
+        "Liquid Glucose",
+        "Sodium Acid Pyrophosphate",
+        "Wheat Gluten",
+        "Dough Conditioner (223) and Improvers (575) (575) & XYLAMASE"
+    ],
+    "suitableDiets": [
+        "Gluten-Free Diet"
+    ],
+    "notSuitableDiets": [
+        "Keto Diet",
+        "Paleo Diet",
+        "Vegan Diet",
+        "Vegetarian Diet",
+        "Low-Carb Diet",
+        "Low-Fat Diet",
+        "Intermittent Fasting",
+        "Carnivore Diet",
+        "Diabetes Diet",
+        "Low-Sodium Diet"
+    ],
+    "macroNutrientsScore": {
+        "Proteins": "7.7",
+        "Carbohydrates": "73.0",
+        "Dietary Fiber": "0",
+        "Sugars": "25.0",
+        "Fats": "18.4",
+        "Saturated Fats": "10.6",
+        "Trans Fats": "0.0",
+        "Monounsaturated Fats": "2.9",
+        "Polyunsaturated Fats": "3.7",
+        "Omega-3 Fatty Acids": "0",
+        "Omega-6 Fatty Acids": "0"
+    },
+    "microNutrientsScore": {
+        "Vitamin A": "0",
+        "Vitamin C": "0",
+        "Vitamin D": "0",
+        "Vitamin E": "0",
+        "Vitamin K": "0",
+        "B1": "0",
+        "B2": "0",
+        "B3": "0",
+        "B5": "0",
+        "B6": "0",
+        "B7": "0",
+        "B9": "0",
+        "B12": "0",
+        "Calcium": "0",
+        "Iron": "0",
+        "Magnesium": "0",
+        "Potassium": "0",
+        "Sodium": "1000",
+        "Zinc": "0",
+        "Phosphorus": "0",
+        "Iodine": "0",
+        "Selenium": "0",
+        "Copper": "0",
+        "Manganese": "0"
+    },
+    "userRisk": "High Risk",
+    "userRiskReason": "The food is highly processed and contains harmful ingredients like refined palm oil, liquid glucose, and sodium acid pyrophosphate. It is also high in sugar and sodium, which can be detrimental to your health, especially if you have [healthIssue]. Additionally, it is not suitable for any of the diets you follow, including [goal].",
+    "actionableSteps": [
+        "Avoid consuming this product as it is not suitable for your dietary needs and may pose health risks. ",
+        "Look for healthier alternatives like whole-grain crackers or homemade snacks that are lower in sugar, sodium, and processed ingredients. ",
+        "Consult a registered dietitian or nutritionist to create a personalized meal plan that aligns with your dietary restrictions and health goals."
+    ]
+}

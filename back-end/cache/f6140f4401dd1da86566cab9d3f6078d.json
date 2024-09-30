@@ -1,0 +1,73 @@
+{
+    "processed": "Medium",
+    "harmfulIngredients": [
+        "Refined Wheat Flour",
+        "Sugar",
+        "Vegetable Fat",
+        "Palm olein",
+        "Invert Syrup",
+        "Cocoa Solids",
+        "Leavening Agents (500iii, 503iii)",
+        "Salt",
+        "Emulsifier (322)",
+        "NATURE IDENTICAL FLAVOURING SUBSTANCES"
+    ],
+    "suitableDiets": [],
+    "notSuitableDiets": [
+        "Keto Diet",
+        "Paleo Diet",
+        "Vegan Diet",
+        "Vegetarian Diet",
+        "Low-Carb Diet",
+        "Low-Fat Diet",
+        "Gluten-Free Diet",
+        "Carnivore Diet",
+        "Diabetes Diet"
+    ],
+    "macroNutrientsScore": {
+        "Proteins": 5.3,
+        "Carbohydrates": 70.7,
+        "Dietary Fiber": 0,
+        "Sugars": 38.6,
+        "Fats": 9,
+        "Saturated Fats": 9,
+        "Trans Fats": 0,
+        "Monounsaturated Fats": 0,
+        "Polyunsaturated Fats": 0,
+        "Omega-3 Fatty Acids": 0,
+        "Omega-6 Fatty Acids": 0
+    },
+    "microNutrientsScore": {
+        "Vitamin A": 0,
+        "Vitamin C": 0,
+        "Vitamin D": 0,
+        "Vitamin E": 0,
+        "Vitamin K": 0,
+        "B1": 0,
+        "B2": 0,
+        "B3": 0,
+        "B5": 0,
+        "B6": 0,
+        "B7": 0,
+        "B9": 0,
+        "B12": 0,
+        "Calcium": 0,
+        "Iron": 0,
+        "Magnesium": 0,
+        "Potassium": 0,
+        "Sodium": 0,
+        "Zinc": 0,
+        "Phosphorus": 0,
+        "Iodine": 0,
+        "Selenium": 0,
+        "Copper": 0,
+        "Manganese": 0
+    },
+    "userRisk": "High Risk",
+    "userRiskReason": "This food is highly processed and contains a lot of sugar, saturated fat, and refined carbohydrates. It is not suitable for any of the diets you are following. It is also high in sodium, which can be harmful for your cardiovascular health. ",
+    "actionableSteps": [
+        "Avoid this food as it is not suitable for your dietary needs and health goals.",
+        "Choose whole grain options instead of refined wheat flour.",
+        "Look for snacks with lower sugar content and healthier fats."
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "processed": "Medium",
+    "harmfulIngredients": [
+        "Refined Wheat Flour",
+        "Sugar",
+        "Vegetable Fat",
+        "Palm olein",
+        "Invert Syrup",
+        "Cocoa Solids",
+        "Leavening Agents (500iii, 503iii)",
+        "Salt",
+        "Emulsifier (322)",
+        "CONTAINS ADDED FLAVOUR (NATURE IDENTICAL FLAVOURING SUBSTANCES)"
+    ],
+    "suitableDiets": [],
+    "notSuitableDiets": [
+        "Keto Diet",
+        "Paleo Diet",
+        "Vegan Diet",
+        "Vegetarian Diet",
+        "Low-Carb Diet",
+        "Gluten-Free Diet",
+        "Carnivore Diet",
+        "Diabetes Diet"
+    ],
+    "macroNutrientsScore": {
+        "Proteins": 5.3,
+        "Carbohydrates": 70.7,
+        "Dietary Fiber": 0,
+        "Sugars": 38.6,
+        "Fats": 12,
+        "Saturated Fats": 12,
+        "Trans Fats": 0,
+        "Monounsaturated Fats": 0,
+        "Polyunsaturated Fats": 0,
+        "Omega-3 Fatty Acids": 0,
+        "Omega-6 Fatty Acids": 0
+    },
+    "microNutrientsScore": {
+        "Vitamin A": 0,
+        "Vitamin C": 0,
+        "Vitamin D": 0,
+        "Vitamin E": 0,
+        "Vitamin K": 0,
+        "B1": 0,
+        "B2": 0,
+        "B3": 0,
+        "B5": 0,
+        "B6": 0,
+        "B7": 0,
+        "B9": 0,
+        "B12": 0,
+        "Calcium": 0,
+        "Iron": 0,
+        "Magnesium": 0,
+        "Potassium": 0,
+        "Sodium": 0,
+        "Zinc": 0,
+        "Phosphorus": 0,
+        "Iodine": 0,
+        "Selenium": 0,
+        "Copper": 0,
+        "Manganese": 0
+    },
+    "userRisk": "High Risk",
+    "userRiskReason": "This food is highly processed and contains a lot of sugar, which can be harmful for your health. It is also not suitable for your dietary restrictions. ",
+    "actionableSteps": [
+        "Avoid this food as it is not suitable for your dietary restrictions and can be harmful to your health.",
+        "Look for healthier alternatives like whole-grain biscuits or fruits for a snack.",
+        "Consult a registered dietitian or nutritionist for personalized advice on healthy eating habits."
+    ]
+}

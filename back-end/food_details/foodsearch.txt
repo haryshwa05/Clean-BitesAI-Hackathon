@@ -1,5 +1,5 @@
 {
-    "productName": null,
-    "ingredients": "INGREDIENTS: REFINED WHEAT FLOUR (MAIDA), SUGAR, EDIBLE VEGETABLE OIL (PALM), BUTTER (2%), INVERT SYRUP, MILK SOLIDS, RAISING AGENTS [5(13(ii), 500%], IODISED SALT AND EMULSIFIERS [322, 471, 472e].\nCONTAINS ADDED FLAVOURS [NATURAL NATURE IDENTICAL AND ARTIFICIAL (BUTTER, VANILLA & MILK) FLAVOURING SUBSTANCES] (Numbers in brackets as per International Numbering System) CONTAINS WHEAT, MILK AND SOYA.",
-    "nutritionInfo": "NUTRITION INFORMATION\nPER 100G PRODUCT (APPROX.)\nCarbohydrates\t67g\nof which sugars\t22g\nProtein\t7g\nFat\t22g\nSaturated Fatty acids\t11g\nMono unsaturated fatty acids\t8.5g\nPoly unsaturated fatty acids\t2.5g\nTrans fatty acids\t0g\nCholestrol\t6.5mg\nEnergy\t494 kcal"
+    "productName": "SANDWICH BISCUIT",
+    "ingredients": "INGREDIENTS: Refined Wheat Flour, Sugar, Vegetable Fat, Palm olein, Invert Syrup, Cocoa Solids (2.3%), Leavening Agents (500ii), 503ii), Salt, Emulsifier (322) CONTAINS ADDED FLAVOUR NATURE IDENTICAL FLAVOURING SUBSTANCES) Allergen Information: Contains Wheat. Manufactured on equipment that also processes",
+    "nutritionInfo": "NUTRITION INFORMATION*\nPer 100 g\nEnergy (kcal) 480\nProtein g 5.3\nof which Saturated Fat (g) 19\nCarbohydrates g 20.7\nTrans Fat g 0\nof which Sugars (g) 38.6\nDietary Fibre g 0"
 }
