@@ -12,20 +12,21 @@ import { AlertTriangle, Check, X, AlertCircle, Shield, Skull } from "lucide-reac
 const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const getProcessingBadge = (level) => {
-  if (!level) return <Badge variant="default">Unknown</Badge>;
+  if (!level) return <Badge className="bg-gray-200 text-gray-800">Unknown</Badge>;
+
   switch (level.toLowerCase()) {
     case "not processed":
-      return <Badge variant="default">Not Processed</Badge>;
     case "low":
-      return <Badge variant="success">Low</Badge>;
+      return <Badge className="bg-green-200 text-green-800">Not Processed / Low</Badge>;
     case "medium":
-      return <Badge variant="warning">Medium</Badge>;
+      return <Badge className="bg-yellow-200 text-yellow-800">Medium</Badge>;
     case "highly processed":
-      return <Badge variant="destructive">Highly Processed</Badge>;
+      return <Badge className="bg-red-200 text-red-800">Highly Processed</Badge>;
     default:
-      return <Badge variant="default">Unknown</Badge>;
+      return <Badge className="bg-gray-200 text-gray-800">Unknown</Badge>;
   }
 };
+
 
 const renderHarmfulIngredients = (ingredients = []) => {
   if (ingredients.length === 0 || ingredients[0].toLowerCase() === "none") {
@@ -150,7 +151,7 @@ export default function FoodOutput({ foodAnalysis = {} }) {
       stroke: { show: false, width: 0 },
       legend: {
         position: 'bottom',
-        labels: { colors: ["#FFFFFF"] },
+        labels: { colors: ["#FFFFFF", "#FFFFFF", "#FFFFFF"],  },
       },
       noData: {
         text: defaultNoDataMessage,
@@ -197,7 +198,7 @@ export default function FoodOutput({ foodAnalysis = {} }) {
       stroke: { show: false, width: 0 },
       legend: {
         position: 'bottom',
-        labels: { colors: ["#FFFFFF"] },
+        labels: { colors: ["#FFFFFF", "#FFFFFF", "#FFFFFF"] },
       },
       noData: {
         text: defaultNoDataMessage,
@@ -282,28 +283,35 @@ export default function FoodOutput({ foodAnalysis = {} }) {
             </div>
 
             {/* Bottom Section: All other information */}
+            {/* Suitable Diets */}
             <div className="lg:col-span-2">
-              <h3 className="text-xl sm:text-2xl font-semibold mt-6 mb-2">Harmful Ingredients</h3>
-              {renderHarmfulIngredients(harmfulIngredients)}
-
               <h3 className="text-xl sm:text-2xl font-semibold mt-6 mb-2">Suitable Diets</h3>
               <div className="flex flex-wrap gap-2">
-                {suitableDiets.map((diet) => (
-                  <Badge key={diet} variant="outline" className="bg-green-100">
-                    <Check className="w-3 h-3 mr-1" />
-                    {diet}
-                  </Badge>
-                ))}
+                {suitableDiets.length > 0 ? (
+                  suitableDiets.map((diet) => (
+                    <Badge key={diet} variant="outline" className="bg-green-100">
+                      <Check className="w-3 h-3 mr-1" />
+                      {diet}
+                    </Badge>
+                  ))
+                ) : (
+                  <p className="text-white">N/A</p>
+                )}
               </div>
 
+              {/* Not Suitable Diets */}
               <h3 className="text-xl sm:text-2xl font-semibold mt-6 mb-2">Not Suitable Diets</h3>
               <div className="flex flex-wrap gap-4">
-                {notSuitableDiets.map((diet) => (
-                  <Badge key={diet} variant="outline" className="bg-red-100 px-3 py-1">
-                    <X className="w-3 h-3 mr-2" />
-                    {diet}
-                  </Badge>
-                ))}
+                {notSuitableDiets.length > 0 ? (
+                  notSuitableDiets.map((diet) => (
+                    <Badge key={diet} variant="outline" className="bg-red-100 px-3 py-1">
+                      <X className="w-3 h-3 mr-2" />
+                      {diet}
+                    </Badge>
+                  ))
+                ) : (
+                  <p className="text-white">N/A</p>
+                )}
               </div>
 
               <h3 className="text-xl sm:text-2xl font-semibold mt-8 mb-2">User Impact</h3>

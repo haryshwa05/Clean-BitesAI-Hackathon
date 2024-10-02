@@ -2,26 +2,17 @@ import os
 import json
 
 def get_unique_filename(user_id, folder):
-    """
-    Generate a unique file path for the user based on Clerk's userId.
-    The filename is the userId, ensuring uniqueness.
-    """
+    """Generate a unique file path for the user based on Clerk's userId."""
     return os.path.join(folder, f'{user_id}.txt')
 
-
 def save_user_data(data):
-    """
-    Save the user details using Clerk's userId.
-    The data is saved in a file named after the userId.
-    """
+    """Save the user details using Clerk's userId."""
     user_id = data.get('userId')
     if not user_id:
         raise ValueError("UserId is required to save user data.")
 
-    # Ensure the user details folder exists
-    user_details_folder = os.path.join(os.getcwd(), 'userdetails_back')
-    if not os.path.exists(user_details_folder):
-        os.makedirs(user_details_folder)
+    # Use the /tmp directory for saving user details
+    user_details_folder = '/tmp'
 
     # Get the unique file path for the userId
     file_path = get_unique_filename(user_id, user_details_folder)
@@ -32,16 +23,10 @@ def save_user_data(data):
 
     return user_id
 
-
 def get_user_data(user_id):
-    """
-    Fetch existing user details based on Clerk's userId.
-    Returns the user data if found, otherwise returns None.
-    """
-    # Ensure the user details folder exists
-    user_details_folder = os.path.join(os.getcwd(), 'userdetails_back')
-    if not os.path.exists(user_details_folder):
-        os.makedirs(user_details_folder)
+    """Fetch existing user details based on Clerk's userId."""
+    # Use the /tmp directory for fetching user details
+    user_details_folder = '/tmp'
 
     # Build the file path using the userId
     file_path = get_unique_filename(user_id, user_details_folder)

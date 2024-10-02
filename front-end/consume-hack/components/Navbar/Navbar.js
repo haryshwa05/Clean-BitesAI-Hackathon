@@ -15,7 +15,7 @@ const Navbar = () => {
     const checkUserDetails = async () => {
       if (user) {
         try {
-          const response = await fetch(`http://localhost:8000/get-user-details/${user.id}`);
+          const response = await fetch(`https://cleanbitesai.el.r.appspot.com/get-user-details/${user.id}`);
           if (response.ok) {
             const data = await response.json();
             // Check if critical fields are filled

@@ -8,7 +8,8 @@ from gemini.gemini_image import extract_text_from_image  # Import the image text
 import traceback
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": ["https://cleanbitesai.vercel.app", "http://localhost:3000"]}})
+
 
 # Clerk API Key
 API_KEY = "••••••••••••••••••••••••••••••••••••••••••••"  # Replace with your actual API key
@@ -26,8 +27,8 @@ def extract_text():
         if image_file.filename == '':
             return jsonify({"message": "No selected image file"}), 400
 
-        # Save the image temporarily
-        image_path = os.path.join(os.getcwd(), 'temp_image.png')
+        # Use the /tmp directory for temporary file storage
+        image_path = os.path.join('/tmp', 'temp_image.png')
         image_file.save(image_path)
 
         # Extract text from the image using the Gemini API
@@ -117,14 +118,13 @@ def save_food_details():
     try:
         # Check if an image file is provided in the request (FormData)
         if 'infoImage' in request.files or request.form:
-            # Handle the FormData case
             if 'infoImage' in request.files:
                 image_file = request.files['infoImage']
                 if image_file.filename == '':
                     return jsonify({"message": "No selected image file"}), 400
 
-                # Save the image temporarily
-                image_path = os.path.join(os.getcwd(), 'temp_image.png')
+                # Use the /tmp directory for temporary file storage
+                image_path = os.path.join('/tmp', 'temp_image.png')
                 image_file.save(image_path)
 
                 # Extract text from the image using the Gemini API
@@ -142,13 +142,8 @@ def save_food_details():
                     'ingredients': request.form.get('ingredients', ''),
                     'nutritionInfo': request.form.get('nutritionInfo', '')
                 }
-
-        # If the request is JSON-based
         else:
             data = request.get_json()
-
-            # Debugging: Print the received data
-            print("Received Food Data:", data)
 
             # Validate the data (Check if required fields are present)
             if not data or 'productName' not in data or 'ingredients' not in data:
@@ -157,13 +152,8 @@ def save_food_details():
         # Debugging: Print the data to be saved
         print("Food Data to be saved:", data)
 
-        # Ensure the food_details folder exists
-        food_details_folder = os.path.join(os.getcwd(), 'food_details')
-        if not os.path.exists(food_details_folder):
-            os.makedirs(food_details_folder)
-
-        # Define the file path where the food details will be saved
-        file_path = os.path.join(food_details_folder, 'foodsearch.txt')
+        # Use the /tmp directory for saving food details
+        file_path = os.path.join('/tmp', 'foodsearch.txt')
 
         # Save food details to the file (Overwrite mode)
         with open(file_path, 'w') as f:  # 'w' mode to overwrite the file
@@ -191,27 +181,28 @@ def gemini_call():
 
         # Paths to the required files
         prompt_file_path = 'prompt.txt'  # Main prompt template
-        food_search_file_path = 'food_details/foodsearch.txt'  # Food search data
-        response_path = 'response/response.json'
+        food_search_file_path = os.path.join('/tmp', 'foodsearch.txt')  # Use /tmp directory for food search data
 
-        # Fetch the **most recent** user details based on the userId
+        # Fetch the most recent user details based on the userId
         user_details = get_user_data(user_id)
         if not user_details:
             return jsonify({"message": f"User details for {user_id} not found."}), 404
 
+        # Debugging: Print user details
+        print("User Details: ", user_details)
+
         # Call the Gemini API with the latest user data and food search details
-        call_gemini(prompt_file_path, food_search_file_path, user_details, response_path)
+        response_data = call_gemini(prompt_file_path, food_search_file_path, user_details)
 
-        # Read the saved response from file
-        with open(response_path, 'r') as response_file:
-            response_data = json.load(response_file)
+        # Print the response for debugging purposes
+        print("Gemini API Response: ", response_data)
 
+        # Return the response to the frontend
         return jsonify(response_data), 200
     except Exception as e:
         print("An error occurred during the Gemini API call:")
         traceback.print_exc()
         return jsonify({"message": "Failed to process Gemini call", "error": str(e)}), 500
-
 
 
 if __name__ == '__main__':

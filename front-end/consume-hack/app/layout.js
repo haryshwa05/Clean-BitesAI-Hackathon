@@ -15,7 +15,10 @@ export default function RootLayout({ children }) {
   const showTopBar = showNavbar; // Same condition for TopBar
 
   return (
-    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      afterSignInUrl="/user-details"
+    >
       <html lang="en">
         <body className="bg-cover" style={{ backgroundImage: "url('/background-6.jpg')" }}>
           {/* Conditionally render the Navbar */}

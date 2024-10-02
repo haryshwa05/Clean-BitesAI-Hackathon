@@ -26,7 +26,8 @@ export default function UserDetails() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/get-user-details/${user.id}`);
+        const response = await fetch(`https://cleanbitesai.el.r.appspot.com/get-user-details/${encodeURIComponent(user.id)}`);
+
         if (response.ok) {
           const data = await response.json();
           setFormData(data); // Populate the form with existing user data
@@ -74,10 +75,11 @@ export default function UserDetails() {
 
     if (validateForm()) {
       try {
-        const endpoint = `http://localhost:8000/update-user-details/${user.id}`;
+        // Ensure the endpoint is correct
+        const endpoint = `https://cleanbitesai.el.r.appspot.com/update-user-details/${encodeURIComponent(user.id)}`;
 
         const response = await fetch(endpoint, {
-          method: "POST",  // Ensure this is POST for update
+          method: "POST", // Ensure this is POST for update
           headers: {
             "Content-Type": "application/json",
           },
@@ -100,7 +102,7 @@ export default function UserDetails() {
         console.error("Error submitting form:", error);
       }
     }
-};
+  };
 
 
   return (

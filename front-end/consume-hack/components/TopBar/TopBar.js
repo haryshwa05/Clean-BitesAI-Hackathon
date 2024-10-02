@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from 'next/image';
 import { UserButton, useUser } from "@clerk/nextjs";
 import { Tooltip } from "@mui/material";
 import { Utensils, HeartPulse, Menu } from "lucide-react";
@@ -16,7 +17,7 @@ function TopBar() {
     const checkUserDetails = async () => {
       if (user) {
         try {
-          const response = await fetch(`http://localhost:8000/get-user-details/${user.id}`);
+          const response = await fetch(`https://cleanbitesai.el.r.appspot.com/get-user-details/${user.id}`);
           if (response.ok) {
             const data = await response.json();
             // Check if critical fields are filled
@@ -37,7 +38,7 @@ function TopBar() {
     <div className="flex items-center justify-between absolute top-4 poppins-regular w-full">
       <div className="ml-5">
         {/* Logo on the left side */}
-        <img
+        <Image
           src="/cleanbites-trans.png"
           alt="Logo"
           className="w-22 h-12 md:w-26 md:h-16"
@@ -88,7 +89,7 @@ function TopBar() {
 
         <div className="hidden md:flex">
           <UserButton
-            afterSignOutUrl="/"
+            signOutUrl="/"
             appearance={{
               elements: {
                 userButtonAvatarBox: 'w-10 h-10',

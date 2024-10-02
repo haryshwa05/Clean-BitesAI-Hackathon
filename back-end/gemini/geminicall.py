@@ -1,19 +1,13 @@
 import google.generativeai as genai
 import json
 import os
-import hashlib
 
-def generate_hash(prompt_text, food_data):
-    # Hash the combined prompt text and food details for consistency across all users
-    combined_data = f"{prompt_text}{food_data}"
-    return hashlib.md5(combined_data.encode()).hexdigest()
+def call_gemini(prompt_file_path, food_search_file_path, user_details):
+    api_key = "AIzaSyCSOKBF43-12A_Ol3pG60UAn86dLrD6Iyc"  # Replace with your Gemini API key
 
-def call_gemini(prompt_file_path, food_search_file_path, user_details, output_file_path='response/response.json'):
-    api_key = "AIzaSyCSOKBF43-12A_Ol3pG60UAn86dLrD6Iyc"
-    
     # Configure the API key
     genai.configure(api_key=api_key)
-    
+
     # Generation configuration for consistent response
     generation_config = {
         "temperature": 0,
@@ -31,21 +25,11 @@ def call_gemini(prompt_file_path, food_search_file_path, user_details, output_fi
     with open(food_search_file_path, 'r') as food_file:
         food_data = food_file.read()
 
-    # Generate a hash of the input to use as a cache key
-    product_hash = generate_hash(prompt_text, food_data)
-    cached_file_path = f"cache/{product_hash}.json"
-
-    # Check if there's a cached response for this food data and prompt
-    if os.path.exists(cached_file_path):
-        with open(cached_file_path, 'r') as cache_file:
-            cached_response = json.load(cache_file)
-            print(f"Returning cached response from {cached_file_path}")
-            return cached_response
-
-    # Combine prompt and food search details for the API request
+    # Combine prompt, food search details, and user data into one prompt for the Gemini API
     full_prompt = (
         f"{prompt_text}\n\n"
-        f"Food Search Details:\n{food_data}"
+        f"Food Search Details:\n{food_data}\n\n"
+        f"User Details:\n{json.dumps(user_details, indent=4)}"
     )
 
     # Start a chat session with the Gemini API
@@ -59,14 +43,11 @@ def call_gemini(prompt_file_path, food_search_file_path, user_details, output_fi
     # Parse the response text to a JSON object
     response_json = json.loads(response_text)
 
-    # Cache the response for future identical requests
-    cache_dir = os.path.dirname(cached_file_path)
-    if not os.path.exists(cache_dir):
-        os.makedirs(cache_dir)
-    with open(cached_file_path, 'w') as cache_file:
-        json.dump(response_json, cache_file, indent=4)
+    # Write the Gemini API response to /tmp/response.json for GCP compatibility
+    response_file_path = os.path.join('/tmp', 'response.json')
 
-    print(f"Response has been cached to {cached_file_path}")
+    with open(response_file_path, 'w') as response_file:
+        json.dump(response_json, response_file, indent=4)
 
-    # Return the response
+    # Return the response directly without saving it to the old location
     return response_json

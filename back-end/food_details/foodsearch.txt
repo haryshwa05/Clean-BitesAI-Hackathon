@@ -1,5 +1,5 @@
 {
     "productName": "SANDWICH BISCUIT",
-    "ingredients": "INGREDIENTS: Refined Wheat Flour, Sugar, Vegetable Fat, Palm olein, Invert Syrup, Cocoa Solids (2.3%), Leavening Agents (500ii), 503ii), Salt, Emulsifier (322) CONTAINS ADDED FLAVOUR NATURE IDENTICAL FLAVOURING SUBSTANCES) Allergen Information: Contains Wheat. Manufactured on equipment that also processes",
-    "nutritionInfo": "NUTRITION INFORMATION*\nPer 100 g\nEnergy (kcal) 480\nProtein g 5.3\nof which Saturated Fat (g) 19\nCarbohydrates g 20.7\nTrans Fat g 0\nof which Sugars (g) 38.6\nDietary Fibre g 0"
+    "ingredients": "INGREDIENTS: Refined Wheat Flour, Sugar, Vegetable Fat, Palm olein, Invert Syrup, Cocoa Solids (2.3%), Leavening Agents (500ii, 503ii), Salt, Emulsifier (322)\nCONTAINS ADDED FLAVOUR - NATURE IDENTICAL FLAVOURING SUBSTANCES.\nAllergen Information: Contains Wheat\nManufactured on equipment that also processes",
+    "nutritionInfo": "NUTRITION INFORMATION*\nPer 100 g\n\nEnergy kcal 480\nProtein g 5.3\nof which Saturated Fat g 19\nCarbohydrate g 20.7\nTrans Fat g 0\nof which Sugars g 38.6 Dietary Fibre g"
 }

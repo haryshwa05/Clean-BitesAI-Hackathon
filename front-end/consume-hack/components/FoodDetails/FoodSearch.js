@@ -85,7 +85,7 @@ const FoodSearch = () => {
       formDataToSend.append('nutritionInfo', formData.nutritionInfo);
       if (formData.infoImage) formDataToSend.append('infoImage', formData.infoImage);
 
-      const response = await fetch('http://localhost:8000/save-food-details', {
+      const response = await fetch('https://cleanbitesai.el.r.appspot.com/save-food-details', {
         method: 'POST',
         body: formDataToSend,
       });
@@ -120,7 +120,7 @@ const FoodSearch = () => {
     setLoadingMessage("Analyzing..."); // Set loader message to "Analyzing"
 
     try {
-      const response = await fetch('http://localhost:8000/gemini-call', {
+      const response = await fetch('https://cleanbitesai.el.r.appspot.com/gemini-call', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

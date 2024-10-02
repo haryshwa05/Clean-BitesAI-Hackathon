@@ -83,7 +83,13 @@ Additional:
 
 Make the response texts personal to the user who is using the app by including his/her name from the user details
 
-Make sure macronutrients and micronutrients should be  scored out of 100 and shouldnt exceed 100 in the score 
+For each macronutrient and micronutrient, provide a score out of 100 based on how much of each is present compared to the recommended daily intake (RDI) or daily value (DV). Use the following formula:
+
+score = (nutrient_amount / recommended_daily_intake) * 100
+    return min(score, 100)  # Cap the score at 100
+
+Cap the score at 100 to ensure consistency.
+If some macronutrients or micronutrients are not explicitly mentioned, estimate their presence based on the list of ingredients and assign an appropriate score using known nutritional values for those ingredients.
 
 Please provide the food analysis in the following JSON format:
 
